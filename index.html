@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="./logo/calculator-logo.png" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Banksia Calculator</title>
+    </head>
+    <body class="calculator">
+        <h1 class="calculator__title">Banksia Calculator</h1>
+        <h3 class="calculator__subtitle">
+            Please enter your desired calculation below. <br /><br />
+        </h3>
+        <!-- align center -->
+        <div class="calculator__box">
+            <div class="calculator__box--row" id="calculator__box--row1">
+                <textarea id="textarea--input" class="calculator__box--input">
+                </textarea>
+            </div>
+
+            <div class="calculator__box--row" id="calculator__box--row2">
+                <input
+                    type="button"
+                    class="button calculator__box--clear"
+                    id="button--clear"
+                    value="AC"
+                />
+                <input
+                    type="button"
+                    class="button"
+                    id="button--ans"
+                    value="Ans"
+                />
+
+                <input
+                    type="button"
+                    class="button"
+                    id="button--bsp"
+                    value="←"
+                />
+                <input
+                    type="button"
+                    class="button operator"
+                    id="button--div"
+                    value="/"
+                />
+            </div>
+
+            <div class="calculator__box--row" id="calculator__box--row3">
+                <input
+                    type="button"
+                    class="button number"
+                    id="button--1"
+                    value="1"
+                />
+                <input
+                    type="button"
+                    class="button number"
+                    id="button--2"
+                    value="2"
+                />
+                <input
+                    type="button"
+                    class="button number"
+                    id="button--3"
+                    value="3"
+                />
+                <input
+                    type="button"
+                    id="button--mult"
+                    class="button operator"
+                    value="*"
+                />
+            </div>
+
+            <div class="calculator__box--row" id="calculator__box--row4">
+                <input
+                    type="button"
+                    class="button number"
+                    id="button--4"
+                    value="4"
+                />
+                <input
+                    type="button"
+                    class="button number"
+                    id="button--5"
+                    value="5"
+                />
+                <input
+                    type="button"
+                    class="button number"
+                    id="button--6"
+                    value="6"
+                />
+                <input
+                    type="button"
+                    id="button--minus"
+                    class="button operator"
+                    value="-"
+                />
+            </div>
+
+            <div class="calculator__box--row" id="calculator__box--row5">
+                <input
+                    type="button"
+                    class="button number"
+                    id="button--7"
+                    value="7"
+                />
+                <input
+                    type="button"
+                    class="button number"
+                    id="button--8"
+                    value="8"
+                />
+                <input
+                    type="button"
+                    class="button number"
+                    id="button--9"
+                    value="9"
+                />
+                <input
+                    type="button"
+                    class="button operator"
+                    id="button--plus"
+                    value="+"
+                />
+            </div>
+
+            <div class="calculator__box--row" id="calculator__box--row6">
+                <input
+                    type="button"
+                    class="button number"
+                    id="button--0"
+                    value="0"
+                />
+                <input type="button" id="button--dec" value="." />
+
+                <input
+                    type="button"
+                    class="button operator calculator__box--equals"
+                    id="button--equals"
+                    value="="
+                />
+            </div>
+        </div>
+        <footer>
+            <h3 class="calculator__subtitle">
+                Thanks for checking out my calculator!
+            </h3>
+            <br />
+            <div class="personals">
+                <a href="https://github.com/SophieHogg/SophieH">
+                    <div class="personals__logo personals__github"></div>
+                </a>
+                <a href="https://www.linkedin.com/in/sophiehogg1/">
+                    <div class="personals__logo personals__linkedin"></div>
+                </a>
+            </div>
+        </footer>
+    </body>
+    <script type="module" src="./script.js"></script>
+</html>

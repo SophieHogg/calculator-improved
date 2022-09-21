@@ -1,0 +1,222 @@
+@use "./partials/palette";
+@use "./partials/devices";
+@import url("https://fonts.googleapis.com/css2?family=Paytone+One&display=swap");
+
+input {
+    width: 150px;
+    height: 50px;
+    background-color: palette.$hover-colour;
+    border: 1px solid palette.$click-colour;
+    font-weight: bold;
+    @include devices.phone-s {
+        width: 50px;
+    }
+    @include devices.phone {
+        width: 60px;
+    }
+    @include devices.tablet {
+        width: 100px;
+    }
+
+    &:hover {
+        background-color: palette.$secondary-colour;
+        cursor: pointer;
+    }
+    &:active {
+        background-color: palette.$click-colour;
+        color: white;
+    }
+}
+
+.calculator {
+    width: 100%;
+    padding-top: 3%;
+    background-color: palette.$background-colour-dark;
+    &__title {
+        text-align: center;
+        color: palette.$background-colour-darkest;
+        text-shadow: 2px 2px palette.$font-colour;
+        max-width: 80%;
+        margin: auto;
+        font-family: "Paytone One", sans-serif;
+        font-size: 50px;
+        @include devices.phone-s {
+            font-size: 20px;
+            text-shadow: 1px 1px palette.$font-colour;
+        }
+        @include devices.phone {
+            font-size: 30px;
+            text-shadow: 1px 1px palette.$font-colour;
+        }
+        @include devices.tablet {
+            font-size: 40px;
+        }
+    }
+    &__subtitle {
+        font-family: Arial;
+        font-size: 15px;
+        color: palette.$font-colour;
+        padding-top: 2%;
+        text-align: center;
+        max-width: 80%;
+        margin: auto;
+        @include devices.phone-s {
+            font-size: 13px;
+        }
+    }
+    &__box {
+        display: flex;
+        padding: 10px;
+        flex-direction: column;
+        align-items: center;
+        &--row {
+            display: flex;
+            flex-direction: row;
+        }
+        &--input,
+        &--result {
+            background-color: white;
+            width: 592px;
+            height: 50px;
+            font-size: 50px;
+            font-family: "Courier New", Courier, monospace;
+            @include devices.phone-s {
+                width: 192px;
+                height: 1em;
+                font-size: 30px;
+            }
+            @include devices.phone {
+                width: 233px;
+                height: 1em;
+                font-size: 35px;
+            }
+            @include devices.tablet {
+                width: 393px;
+                font-size: 40px;
+                height: 1em;
+            }
+            &:hover {
+                background-color: palette.$input-hover-colour;
+            }
+        }
+        &--result {
+            text-align: right;
+            color: grey;
+        }
+        &--equals {
+            width: 300px;
+            background-color: palette.$primary-colour;
+            @include devices.phone-s {
+                width: 100px;
+            }
+            @include devices.phone {
+                width: 120px;
+            }
+            @include devices.tablet {
+                width: 200px;
+            }
+        }
+        &--clear {
+            background-color: palette.$primary-colour;
+        }
+    }
+}
+
+p {
+    font-family: Arial;
+    font-size: 14px;
+    color: palette.$font-colour;
+    text-align: center;
+    max-width: 80%;
+    margin: auto;
+    @include devices.phone-s {
+        font-size: 12px;
+    }
+}
+footer {
+    padding-top: 40px;
+}
+a:link {
+    text-decoration: none;
+    font-weight: bold;
+    font-style: italic;
+    color: palette.$lightest-colour;
+}
+
+a:hover {
+    color: palette.$click-colour;
+}
+a:visited {
+    color: palette.$font-colour;
+}
+
+.personals {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    font-family: "Pacifico";
+    margin-top: 10px;
+    @include devices.large-width {
+        margin-top: 20px;
+    }
+    &__logo {
+        width: 32px;
+        height: 32px;
+        @include devices.large-width {
+            width: 64px;
+            height: 64px;
+        }
+    }
+    &__github {
+        background-image: url("./images/github-black-32.png");
+        margin-right: 10px;
+        &:hover {
+            background-image: (url("./images/github-yellow-32.png"));
+        }
+        &:active {
+            background-image: (url("./images/github-orange-32.png"));
+        }
+        @include devices.large-width {
+            background-image: url("./images/github-black-64.png");
+            &:hover {
+                background-image: (url("./images/github-yellow-64.png"));
+            }
+            &:active {
+                background-image: (url("./images/github-orange-64.png"));
+            }
+        }
+    }
+    &__linkedin {
+        margin-left: 10px;
+        background-image: url("./images/linkedin-black-32.png");
+        &:hover {
+            background-image: (url("./images/linkedin-yellow-32.png"));
+        }
+        &:active {
+            background-image: (url("./images/linkedin-orange-32.png"));
+        }
+        @include devices.large-width {
+            background-image: url("./images/linkedin-black-64.png");
+            &:hover {
+                background-image: (url("./images/linkedin-yellow-64.png"));
+            }
+            &:active {
+                background-image: (url("./images/linkedin-orange-64.png"));
+            }
+        }
+    }
+}
+
+a {
+    width: 32px;
+    height: 32px;
+    @include devices.large-width {
+        width: 64px;
+        height: 64px;
+    }
+}
+
+#calculator__box--row1 {
+    flex-direction: column;
+    padding-bottom: 10px;
+}
