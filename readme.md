@@ -4,6 +4,15 @@
 
 A calculator project designed in HTML, CSS and JavaScript. I completed the initial version of this project during my time at \_nology. This is a remake I completed in my own time.
 
+## Original MVP
+
+-   Create a calculator rendered to HTML page
+-   It should have all numbers, and operator keys +, -, /, \* and =
+-   It should have decimal . key and handle decimal equations
+-   It should have a display rendering calculation at the top
+-   It should not use eval()
+-   It does not need to support orders of operation
+
 ## Design
 
 As I made this project as part of my initial suite as part of Nology, I based the colouring and theme from Australian flora. In this case, I based the colouring off a banksia, via this colour palette.

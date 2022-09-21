@@ -1,3 +1,4 @@
+//HTML elements
 let input = document.getElementById("textarea--input");
 let buttonEq = document.getElementById("button--equals");
 const buttonClr = document.getElementById("button--clear");
@@ -8,6 +9,7 @@ const operatorButton = document.querySelectorAll(".operator");
 const buttons = document.querySelectorAll(".button");
 const buttonBsp = document.getElementById("button--bsp");
 
+// basic variables
 var reg = new RegExp(/[0-9]/);
 let operator = "";
 let number = 0;
@@ -16,13 +18,10 @@ let ans = 0;
 let output = 0;
 input.innerHTML = 0;
 
+//when number button is clicked, adds number to display and to 'number' used for calculations. Unable to add multiple leading 0s at the start of the equation.
 numberButton.forEach((button) => {
     button.addEventListener("click", () => {
-        if (
-            button.value == 0 &&
-            input.value.charAt(0) == 0 &&
-            input.value.length == 1
-        ) {
+        if (button.value == 0 && input.value.length == 0) {
             console.log(input.value.length);
             input.value = input.value;
         } else {
@@ -32,6 +31,7 @@ numberButton.forEach((button) => {
     });
 });
 
+//when an operator button is clicked, it will first ensure the last number was a number. If it was, it will push the previous number to an array. If the array has two numbers in it, it will use the saved operator to complete the calculation before updating the saved operator and clearing the number array. The output from the initial calculation will then be pushed to the array, allowing multiple calculations and a left-to-right operating order.
 operatorButton.forEach((button) => {
     button.addEventListener("click", () => {
         let inputValue = input.value;
@@ -41,13 +41,16 @@ operatorButton.forEach((button) => {
             number = 0;
             if (numsArr.length == 2) {
                 output = 0;
+                //calls on the external function to calculate
                 output = calculateHelper(numsArr[0], operator, numsArr[1]);
+                //ensures that errors will show if there are any problems
                 if (output == "error" || output == NaN) {
-                    input.innerHTML = "Error";
+                    output = "Error!";
                 }
                 numsArr = [];
                 numsArr.push(output);
             }
+            //the equals button is dealt with here. This will NOT add the operator to the display box.
             if (button.value == "=") {
                 input.value = output;
                 numsArr = [];
@@ -60,23 +63,15 @@ operatorButton.forEach((button) => {
     });
 });
 
+//when decimal button is clicked, the decimal will be added IF (and only if) the same number does not contain a decimal.
 buttonDec.addEventListener("click", () => {
-    let decAllowed = true;
-    for (let i = input.value.length; i >= 0; i--) {
-        if (/[0-9]/.test(input.value[input.value.length - 1])) {
-            console.log(input.value.charAt(i));
-            break;
-        } else if (input.value.charAt(i) == ".") {
-            decAllowed = false;
-            break;
-        }
-    }
-    if (decAllowed) {
+    if ((number + "").indexOf(".") == -1) {
         input.value += ".";
         number += ".";
     }
 });
 
+//clears all defined variables and clears the display box
 buttonClr.addEventListener("click", () => {
     input.value = "";
     number = "";
@@ -85,9 +80,10 @@ buttonClr.addEventListener("click", () => {
     input.innerHTML = 0;
 });
 
+// backspaces the input box, removes last digit from number if the last digit was a number or a decimal point, otherwise clears the operator.
 buttonBsp.addEventListener("click", () => {
     let lastDigit = input.value.charAt(input.value.length - 1);
-    if (reg.test(lastDigit)) {
+    if (/[0-9\.]/.test(lastDigit)) {
         number = number.slice(0, -1);
     } else {
         operator = "";
@@ -95,11 +91,13 @@ buttonBsp.addEventListener("click", () => {
     input.value = input.value.slice(0, -1);
 });
 
+//returns the output i.e. the previous answer
 buttonAns.addEventListener("click", () => {
     input.value += output;
     number += output;
 });
 
+//calculator function - takes inputs from operators, number 1 and number 2 and outputs the correct solution. Returns an error if a number is divided by 0.
 const calculateHelper = (a, o, b) => {
     switch (o) {
         case "*":
